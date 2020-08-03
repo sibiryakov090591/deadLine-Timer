@@ -1,5 +1,5 @@
 // Timer
-    const deadLine = '2020-08-11'; <----- set your dead-line in this form!
+    const deadLine = '2020-08-11'; // <----- set your dead-line date in this form!
 
     function getTimeRemeining(endTime) {
         const t = Date.parse(endTime) - Date.parse(new Date()),
@@ -17,7 +17,7 @@
         };
     }
 
-    function addZero (num) { // <----- the function adds 0 to show dates like this: "02" days, "09" hours...
+    function addZero (num) { // <----- the function adds "0" to show dates like this: "02" days, "09" hours...
         if (num >= 0 && num < 10) {
             return '0' + num;
         } else {
