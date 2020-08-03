@@ -38,10 +38,73 @@
         function updateTimer() {
             const t = getTimeRemeining(endTime);
 
-            days.innerHTML = addZero(t.days);
-            hours.innerHTML = addZero(t.hours);
-            minutes.innerHTML = addZero(t.minutes);
-            seconds.innerHTML = addZero(t.seconds);
+            if (t.days === 1 || t.days === 21) {
+                days.innerHTML = `<span>${addZero(t.days)}</span>день`;
+            } else if ( (t.days > 1 && t.days < 5) || (t.days > 21 && t.days < 25) ) {
+                days.innerHTML = `<span>${addZero(t.days)}</span>дня`;
+            } else if ( (t.days > 4 && t.days < 21) || (t.days > 24 && t.days < 31) ) {
+                days.innerHTML = `<span>${addZero(t.days)}</span>дней`;
+            } 
+
+            if (t.hours === 1) {
+                hours.innerHTML = `<span>${addZero(t.hours)}</span>час`;
+            } else if (t.hours > 1 && t.hours < 5) {
+                hours.innerHTML = `<span>${addZero(t.days)}</span>часа`;
+            } else if (t.hours > 4 && t.hours < 12) {
+                hours.innerHTML = `<span>${addZero(t.hours)}</span>часов`;
+            } 
+
+            if (
+                t.minutes === 1 || 
+                t.minutes === 21 || 
+                t.minutes === 31 ||
+                t.minutes === 41 ||
+                t.minutes === 51
+                ) {
+                minutes.innerHTML = `<span>${addZero(t.minutes)}</span>минута`;
+            } else if ( 
+                (t.minutes > 1 && t.minutes < 5) || 
+                (t.minutes > 21 && t.minutes < 25) ||
+                (t.minutes > 31 && t.minutes < 35) ||
+                (t.minutes > 41 && t.minutes < 45) ||
+                (t.minutes > 51 && t.minutes < 55)
+                ) {
+                minutes.innerHTML = `<span>${addZero(t.minutes)}</span>минуты`;
+            } else if ( 
+                (t.minutes > 4 && t.minutes < 21) || 
+                (t.minutes > 24 && t.minutes < 31) ||
+                (t.minutes > 34 && t.minutes < 41) ||
+                (t.minutes > 44 && t.minutes < 51) ||
+                (t.minutes > 54 && t.minutes < 60)
+                ) {
+                minutes.innerHTML = `<span>${addZero(t.minutes)}</span>минут`;
+            } 
+
+            if (
+                t.seconds === 1 || 
+                t.seconds === 21 || 
+                t.seconds === 31 ||
+                t.seconds === 41 ||
+                t.seconds === 51
+                ) {
+                seconds.innerHTML = `<span>${addZero(t.seconds)}</span>секунда`;
+            } else if ( 
+                (t.seconds > 1 && t.seconds < 5) || 
+                (t.seconds > 21 && t.seconds < 25) ||
+                (t.seconds > 31 && t.seconds < 35) ||
+                (t.seconds > 41 && t.seconds < 45) ||
+                (t.seconds > 51 && t.seconds < 55)
+                ) {
+                seconds.innerHTML = `<span>${addZero(t.seconds)}</span>секунды`;
+            } else if ( 
+                (t.seconds > 4 && t.seconds < 21) || 
+                (t.seconds > 24 && t.seconds < 31) ||
+                (t.seconds > 34 && t.seconds < 41) ||
+                (t.seconds > 44 && t.seconds < 51) ||
+                (t.seconds > 54 && t.seconds < 60)
+                ) {
+                seconds.innerHTML = `<span>${addZero(t.seconds)}</span>секунд`;
+            }
 
             if (t.total <= 0) {
                 clearInterval(timeInterval);
