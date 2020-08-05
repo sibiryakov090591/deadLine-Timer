@@ -38,7 +38,7 @@
         function updateTimer() {
             const t = getTimeRemeining(endTime);
 
-            if (t.days === 1 || t.days === 21) {
+            if (t.days === 1 || t.days === 21 || t.days === 31) {
                 days.innerHTML = `<span>${addZero(t.days)}</span>день`;
             } else if ( (t.days > 1 && t.days < 5) || (t.days > 21 && t.days < 25) ) {
                 days.innerHTML = `<span>${addZero(t.days)}</span>дня`;
@@ -46,11 +46,11 @@
                 days.innerHTML = `<span>${addZero(t.days)}</span>дней`;
             } 
 
-            if (t.hours === 1) {
+            if (t.hours === 1 || t.hours === 21) {
                 hours.innerHTML = `<span>${addZero(t.hours)}</span>час`;
-            } else if (t.hours > 1 && t.hours < 5) {
+            } else if ((t.hours > 1 && t.hours < 5) || (t.hours > 21 && t.hours < 25)) {
                 hours.innerHTML = `<span>${addZero(t.days)}</span>часа`;
-            } else if (t.hours > 4 && t.hours < 12) {
+            } else if (t.hours > 4 && t.hours < 21) {
                 hours.innerHTML = `<span>${addZero(t.hours)}</span>часов`;
             } 
 
